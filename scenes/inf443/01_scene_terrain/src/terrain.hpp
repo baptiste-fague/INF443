@@ -1,10 +1,10 @@
 #pragma once
-#include "terrain.hpp"
-#include "Triangle.h"
-#include "Gridcell.h"
+#include "Triangle.hpp"
+#include "Gridcell.hpp"
 #include <stdlib.h>
 #include <vector>
 #include "vcl/vcl.hpp"
+
 
 struct perlin_noise_parameters
 {
@@ -19,3 +19,5 @@ void update_tree_position(std::vector<vcl::vec3>& tree_positions, vcl::mesh& ter
 bool pointFarEnoughFrom(vcl::vec2 point, std::vector<vcl::vec3>& positions, float distance);
 std::vector<Triangle> polygonize(Gridcell grid, float isolevel);
 vcl::vec3 VertexInterp(vcl::vec3 p1, vcl::vec3  p2, float valp1, float valp2, float isolevel);
+std::vector<vcl::mesh_drawable> create_terrain(int terrain_size_, float isolevel_, float scale_);
+void create_terrain_thread(int thread_number);
